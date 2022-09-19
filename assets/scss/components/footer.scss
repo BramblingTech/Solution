@@ -1,0 +1,13 @@
+.footer {
+  position: relative;
+  background: $secondary-black2;
+  .container {
+    height: 100%;
+    @include for-lg-down {
+      max-width: 430px;
+    }
+  }
+  a {
+    padding: 0;
+  }
+}

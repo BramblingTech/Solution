@@ -1,0 +1,30 @@
+.header {
+  background: $secondary-white;
+  height: 58px;
+  text-transform: uppercase;
+  box-shadow: $block-shadow-main;
+  @include for-lg-down {
+    height: 44px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &__logo {
+    color: inherit;
+    font-size: 15px;
+    &::after {
+      width: 0;
+    }
+    &:hover {
+      color: inherit;
+    }
+  }
+}

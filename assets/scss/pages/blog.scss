@@ -1,0 +1,41 @@
+.blog {
+  &__articles-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    margin-top: 54px;
+    @include for-lg-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include for-md-down {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__articles-item {
+    @include fadeIn;
+  }
+  &__pagination-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .pagination-list {
+      position: absolute;
+      top: 54px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__articles {
+    margin-bottom: 0;
+  }
+  .question-form {
+    margin: 0;
+    padding: 262px 0 180px 0;
+    background: url(images/bg.svg) repeat 0 0;
+    @include for-md-down {
+      padding-top: 196px 0 110px 0;
+    }
+  }
+}

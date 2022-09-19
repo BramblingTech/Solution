@@ -1,0 +1,143 @@
+@use "sass:math";
+$base-font-size: 15;
+
+$x-sm: 340px;
+$e-sm: 360px;
+$sm: 430px;
+$md: 840px;
+$lg: 1024px;
+$e-lg: 1366px;
+
+@mixin for-x-sm-down {
+  @media screen and (max-width: $x-sm) {
+    @content;
+  }
+}
+
+@mixin for-e-sm-down {
+  @media screen and (max-width: $e-sm) {
+    @content;
+  }
+}
+
+@mixin for-sm-down {
+  @media screen and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin for-md-down {
+  @media screen and (max-width: $md) {
+    @content;
+  }
+}
+
+@mixin for-lg-down {
+  @media screen and (max-width: $lg) {
+    @content;
+  }
+}
+
+@mixin for-e-lg-down {
+  @media screen and (max-width: $e-lg) {
+    @content;
+  }
+}
+
+@mixin for-iPhoneX {
+  @media screen and (max-height: $sm) and (min-width: 780px) {
+    @content;
+  }
+}
+
+@mixin transition($prop) {
+  transition: $prop $animation-speed ease;
+}
+
+@mixin makeCircle($diameter, $border-radius, $border-color) {
+  width: $diameter;
+  height: $diameter;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+}
+
+@mixin bordered($top, $left, $bottom, $right) {
+  border-top: $top + px solid #ddd;
+  border-left: $left + px solid #ddd;
+  border-bottom: $bottom + px solid #ddd;
+  border-right: $right + px solid #ddd;
+  box-shadow: none;
+}
+
+@mixin small-container {
+  width: 100%;
+  max-width: 1110px;
+  padding: 0 95px;
+  margin: 0 auto;
+  @include for-e-lg-down {
+    padding: 0 15px;
+  }
+}
+
+@mixin section-margin {
+  margin-bottom: 180px;
+  @include for-md-down {
+    margin-bottom: 110px;
+  }
+}
+
+@function em($pixels, $context: $base-font-size) {
+  @return #{math.div($pixels, $context)}em;
+}
+
+@mixin fadeIn() {
+  animation-name: in;
+  animation-duration: $animation-speed;
+
+  @keyframes in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin postGridLayout {
+  display: grid;
+  grid-template-columns: 191px minmax(300px, 857px) 191px;
+  grid-template-rows: 1fr;
+  column-gap: 30px;
+  row-gap: 30px;
+  @include for-md-down {
+    column-gap: 0;
+    row-gap: 0;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+}
+
+@mixin grid1x1x1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 30px;
+  row-gap: 30px;
+  @include for-lg-down {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 877px) {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0;
+    .post-footer__article {
+      margin-bottom: 30px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+} ;

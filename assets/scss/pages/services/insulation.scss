@@ -1,0 +1,58 @@
+.insulation {
+  &__types {
+    .circled-list {
+      margin-top: 10px;
+    }
+    .image-frame-wrapper {
+      margin-bottom: 34px;
+    }
+  }
+  &-section {
+    &-description {
+      margin-bottom: 35px;
+
+      .image-frame-wrapper {
+        img {
+          border-radius: 4px;
+        }
+        &:first-of-type {
+          align-self: center;
+          max-height: 338px;
+          @include for-md-down {
+            max-height: 260px;
+          }
+        }
+      }
+      p {
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+      }
+      &__title {
+        margin-bottom: 24px;
+        white-space: nowrap;
+
+        @include for-md-down {
+          white-space: normal;
+          margin-bottom: 35px;
+        }
+      }
+
+      &__img {
+        &-wrapper {
+          @include for-md-down {
+            margin-bottom: 35px;
+          }
+        }
+      }
+
+      &__right-col {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+      }
+    }
+  }
+}
